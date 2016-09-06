@@ -1,0 +1,463 @@
+/*
+Theme Name: Insydo
+Theme URI: http://www.theraizuli.com
+Author: Amoury
+Author URI: amourycodes.com
+Description: It is a custom theme built for Insydsports.
+Version: 1.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: custom, tailor-made, premium
+Text Domain: Insydsports
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+@font-face {
+  font-family: 'CooperHewitt-Bold';
+  src: url("CooperHewitt-Bold.eot");
+  /* IE9 Compat Modes */
+  src: url("CooperHewitt-Bold.eot?#iefix") format("embedded-opentype"), url("CooperHewitt-Bold.woff") format("woff"), url("CooperHewitt-Bold.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-family: 'CooperHewitt-Book';
+  src: url("CooperHewitt-Book.eot");
+  /* IE9 Compat Modes */
+  src: url("CooperHewitt-Book.eot?#iefix") format("embedded-opentype"), url("CooperHewitt-Book.woff") format("woff"), url("CooperHewitt-Book.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-family: 'CooperHewitt-Light';
+  src: url("CooperHewitt-Light.eot");
+  /* IE9 Compat Modes */
+  src: url("CooperHewitt-Light.eot?#iefix") format("embedded-opentype"), url("CooperHewitt-Light.woff") format("woff"), url("CooperHewitt-Light.svg#svgFontName") format("svg");
+  /* Legacy iOS */
+  font-family: 'CooperHewitt-Medium';
+  src: url("CooperHewitt-Medium.eot");
+  /* IE9 Compat Modes */
+  src: url("CooperHewitt-Medium.eot?#iefix") format("embedded-opentype"), url("CooperHewitt-Medium.woff") format("woff"), url("CooperHewitt-Medium.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+/********* MIXINS ****************/
+/********* VARIABLES ************/
+/******* MAIN STYLES **********/
+body {
+  font-family: 'CooperHewitt-Medium', sans-serif; }
+
+.top-logo > h1 {
+  font-family: "CooperHewitt-Bold", sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 3vw;
+  visibility: hidden; }
+  @media (max-width: 1000px) {
+    .top-logo > h1 {
+      font-size: 30px; } }
+
+/****** HAMBURGER BUTTON ********/
+.button_container {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  height: 27px;
+  width: 35px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity .25s ease; }
+  .button_container:hover {
+    opacity: .7; }
+  .button_container.active .top {
+    transform: translateY(11px) translateX(0) rotate(45deg);
+    background: #FFF; }
+  .button_container.active .middle {
+    opacity: 0;
+    background: #FFF; }
+  .button_container.active .bottom {
+    transform: translateY(-11px) translateX(0) rotate(-45deg);
+    background: #FFF; }
+  .button_container span {
+    background: #FF5252;
+    border: none;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .35s ease;
+    cursor: pointer; }
+    .button_container span:nth-of-type(2) {
+      top: 11px; }
+    .button_container span:nth-of-type(3) {
+      top: 22px; }
+
+.overlay {
+  position: fixed;
+  background: #FF5252;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden; }
+  .overlay.open {
+    opacity: .9;
+    visibility: visible;
+    height: 100%; }
+    .overlay.open li {
+      animation: fadeInRight .5s ease forwards;
+      animation-delay: .35s; }
+      .overlay.open li:nth-of-type(2) {
+        animation-delay: .4s; }
+      .overlay.open li:nth-of-type(3) {
+        animation-delay: .45s; }
+      .overlay.open li:nth-of-type(4) {
+        animation-delay: .50s; }
+  .overlay nav {
+    position: relative;
+    height: 70%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-family: "CooperHewitt-Medium", serif;
+    font-weight: 400;
+    text-align: center; }
+  .overlay ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    height: 100%; }
+    .overlay ul li {
+      display: block;
+      height: 25%;
+      height: calc(100% / 4);
+      min-height: 50px;
+      position: relative;
+      opacity: 0; }
+      .overlay ul li a {
+        display: block;
+        position: relative;
+        color: #FFF;
+        text-decoration: none;
+        overflow: hidden; }
+        .overlay ul li a:hover:after, .overlay ul li a:focus:after, .overlay ul li a:active:after {
+          width: 100%; }
+        .overlay ul li a:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0%;
+          transform: translateX(-50%);
+          height: 3px;
+          background: #FFF;
+          transition: .35s; }
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%; }
+  100% {
+    opacity: 1;
+    left: 0; } }
+/************** VIDEO BACKGROUND  *******************/
+.hero {
+  position: relative;
+  height: 90vh;
+  width: 100vw; }
+
+.hero__background {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: auto;
+  width: 100%; }
+
+.secondary-hero {
+  height: 50vh;
+  width: 100vw; }
+
+.secondary-hero__background {
+  background-position: 50% 10%;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.hero__content {
+  height: 90vh;
+  position: relative;
+  /* z-index: 2 */ }
+
+.hero__content-footer {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  left: 0;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  position: absolute;
+  right: 0; }
+
+.va-container {
+  display: table;
+  position: relative; }
+
+.va-container-v {
+  height: 100%; }
+
+.seconday-container-v {
+  height: 50vh; }
+
+.va-container-h {
+  width: 100%; }
+
+.va-top,
+.va-middle,
+.va-bottom {
+  display: table-cell; }
+
+.va-top {
+  vertical-align: top; }
+
+.va-middle {
+  vertical-align: middle; }
+
+.va-bottom {
+  vertical-align: bottom; }
+
+.text-jumbo {
+  font-size: 4vw;
+  font-family: "CooperHewitt-Medium", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+  @media (max-width: 750px) {
+    .text-jumbo {
+      font-size: 30px; } }
+
+#start > .fa.fa-play-circle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 6vw; }
+  @media (max-width: 333.33333px) {
+    #start > .fa.fa-play-circle {
+      font-size: 20px; } }
+
+.header-tagline {
+  font-family: "CooperHewitt-Book", sans-serif;
+  color: #fff;
+  font-size: 1.5vw;
+  padding-right: 30px;
+  padding-left: 30px; }
+  @media (max-width: 933.33333px) {
+    .header-tagline {
+      font-size: 14px; } }
+
+i.fa.fa-chevron-circle-down {
+  font-size: 3vw;
+  color: white; }
+  @media (max-width: 666.66667px) {
+    i.fa.fa-chevron-circle-down {
+      font-size: 20px; } }
+
+.video-credit {
+  color: #fff;
+  font-size: 14px;
+  font-family: "CooperHewitt-Book", sans-serif; }
+  .video-credit span {
+    font-family: "CooperHewitt-Light";
+    color: #FF5252; }
+
+/********************* MAIN SECTION **********************************/
+.new-section {
+  margin-top: 5em;
+  margin-bottom: 5em; }
+
+.map-section {
+  margin-top: 2em;
+  height: 80vh;
+  border-radius: 10px; }
+
+.wpgmp_map_container {
+  display: flex;
+  max-height: 550px;
+  margin: 50px 0;
+  z-index: 0; }
+
+.wpgmp_pagination {
+  display: none; }
+
+.location_listing2 {
+  float: right !important;
+  width: 50% !important;
+  margin: 10px 30px;
+  overflow-y: scroll; }
+
+.wpgmp_tabs_container {
+  z-index: 1 !important; }
+
+div.wpgmp_listing_container {
+  float: right;
+  width: 50%;
+  margin: 10px 40px; }
+
+.wpgmp_location_meta {
+  display: block !important;
+  width: 100%;
+  padding-left: 10px;
+  margin-bottom: 10px; }
+
+.wpgmp_listing_grid > .wpgmp_locations {
+  width: 40% !important; }
+
+.category-filters {
+  height: 344px;
+  width: 327px;
+  display: table;
+  margin: 20px; }
+
+.cat-name {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff; }
+  .cat-name a {
+    color: white;
+    text-decoration: none;
+    display: block; }
+    .cat-name a:hover:after, .cat-name a:focus:after, .cat-name a:active:after {
+      width: 60%; }
+    .cat-name a:after {
+      content: '';
+      position: absolute;
+      bottom: 40%;
+      left: 50%;
+      width: 0%;
+      transform: translateX(-50%);
+      height: 3px;
+      background: #FFF;
+      transition: .35s; }
+
+.kiteSurfingCat {
+  background: linear-gradient(rgba(39, 92, 130, 0.5), rgba(0, 0, 0, 0.8)), url("img/kite-surfing-min.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.rockclimbingCat {
+  background: linear-gradient(rgba(39, 92, 130, 0.5), rgba(0, 0, 0, 0.8)), url("img/rock-climbing-min.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.wakeboardingCat {
+  background: linear-gradient(rgba(39, 92, 130, 0.5), rgba(0, 0, 0, 0.8)), url("img/wakeboarding-min.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+/******** GOOGLE MAP **************/
+#map {
+  height: 100%; }
+
+.loc {
+  cursor: pointer; }
+
+/************************* FOOTER ******************************/
+footer {
+  background-color: #3A3042;
+  margin-top: 50px; }
+
+.icon-collection {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px; }
+
+.social-icon {
+  font-size: 3em;
+  color: white; }
+
+.fa.fa-facebook:hover {
+  color: #3b5998;
+  transition: color 0.5s ease-in-out; }
+
+.fa.fa-twitter:hover {
+  color: #1dcaff;
+  transition: color 0.5s ease-in-out; }
+
+.fa.fa-youtube-play:hover {
+  color: #b31217;
+  transition: color 0.5s ease-in-out; }
+
+.icon-title {
+  text-align: center; }
+  .icon-title h3 {
+    display: inline-block;
+    color: white;
+    border-bottom: 3px solid white;
+    padding-bottom: 3px; }
+
+/************************ VIDEO SECTION *************************/
+ul#results {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; }
+  @media screen and (max-width: 768px) {
+    ul#results {
+      flex-direction: column; } }
+  ul#results li {
+    position: relative;
+    display: table;
+    background: black;
+    width: 32%;
+    height: 240px;
+    text-align: center;
+    margin: 5px; }
+    @media screen and (max-width: 768px) {
+      ul#results li {
+        width: 100%; } }
+    ul#results li:nth-child(4), ul#results li:nth-child(10) {
+      width: 65%; }
+      @media screen and (max-width: 768px) {
+        ul#results li:nth-child(4), ul#results li:nth-child(10) {
+          width: 100%; } }
+
+.youtube-container {
+  display: table-cell;
+  vertical-align: middle;
+  height: 240px;
+  overflow: hidden;
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .youtube-container i {
+    font-size: 4em;
+    color: white; }
+
+.youtube-img {
+  max-height: 240px;
+  width: 100%; }
+
+/************* CLUB PAGES *****************/
+.btn-book {
+  font-size: 1.2vw;
+  text-transform: uppercase;
+  padding: 20px 70px;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  background-color: #FF5252; }
+  @media (max-width: 1666.66667px) {
+    .btn-book {
+      font-size: 20px; } }
+
+/**************** WP LOGGED IN ************/
+.logged-in .button_container {
+  top: 10%; }
+
+.main-wrapper {
+  height: 1838px;
+  margin-bottom: 100px; }
+
+/*# sourceMappingURL=style.css.map */
